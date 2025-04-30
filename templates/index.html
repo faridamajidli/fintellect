@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Fetch User Data{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <h1 class="mb-4">Fetch User Data</h1>
+  <form method="post">
+    <div class="mb-3">
+      <label for="user_id" class="form-label">User ID:</label>
+      <input type="text" name="user_id" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Fetch Data</button>
+  </form>
+</div>
+{% endblock %}

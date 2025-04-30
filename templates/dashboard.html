@@ -1,0 +1,361 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - Fintellect{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <!-- Nav Tabs -->
+  <ul class="nav nav-tabs" id="dashboardTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="true">
+        Financial Profile
+      </button>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{ url_for('payment_dates') }}">Payment Dates</a>
+    </li>    
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="comparisons-tab" data-bs-toggle="tab" data-bs-target="#comparisons" type="button" role="tab" aria-controls="comparisons" aria-selected="false">
+        Comparisons
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="risk-tab" data-bs-toggle="tab" data-bs-target="#risk" type="button" role="tab" aria-controls="risk" aria-selected="false">
+        Risk Profile
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="literacy-tab" data-bs-toggle="tab" data-bs-target="#literacy" type="button" role="tab" aria-controls="literacy" aria-selected="false">
+        Financial Literacy
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="insights-tab" data-bs-toggle="tab" data-bs-target="#insights" type="button" role="tab" aria-controls="insights" aria-selected="false">
+        Insights
+      </button>
+    </li>
+  </ul>
+  
+  <div class="tab-content mt-4" id="dashboardTabContent">
+    <!-- New Risk Profile Tab Content (Composite: Risk Profile + Financial Plan) -->
+    <div class="tab-pane fade" id="risk" role="tabpanel" aria-labelledby="risk-tab">
+      <div id="risk-profile-content"></div>
+    </div>
+
+    <!-- Profile Tab -->
+    <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      {% include 'user_profile.html' %}
+    </div>
+    
+    <!-- Insights Tab -->
+    <div class="tab-pane fade" id="insights" role="tabpanel" aria-labelledby="insights-tab">
+      <div class="card">
+        <div class="card-body">
+          <h4>Insights</h4>
+          <!-- Embed your charts, AI recommendations, and financial plan here -->
+          {% include 'result.html' %}
+        </div>
+      </div>
+    </div>
+    
+<!-- Comparisons Tab -->
+<div class="tab-pane fade" id="comparisons" role="tabpanel" aria-labelledby="comparisons-tab">
+  <div class="text-center my-4">
+    <h4>Comparisons</h4>
+    <p>Click below to view detailed expense and demographic comparisons:</p>
+    <div class="d-flex justify-content-center gap-3">
+      <a href="{{ url_for('comparison', user_id=user_id, location_type='university', location_name=university) }}" class="btn btn-secondary">
+        University Comparisons
+      </a>
+      <a href="{{ url_for('comparison', user_id=user_id, location_type='city', location_name=city) }}" class="btn btn-secondary">
+        City Comparisons
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<!-- Financial Literacy Tab Content (inside dashboard.html) -->
+<div class="tab-pane fade" id="literacy" role="tabpanel" aria-labelledby="literacy-tab">
+  <div class="row">
+    <!-- Left Side: Vertical Nav-Pills -->
+    <div class="col-md-3">
+      <ul class="nav nav-pills flex-column" id="financialLiteracySubTabs" role="tablist" aria-orientation="vertical">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="videos-tab" data-bs-toggle="pill" data-bs-target="#videos" type="button" role="tab" aria-controls="videos" aria-selected="true">
+            🎥 Learn with Videos
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="explore-tab" data-bs-toggle="pill" data-bs-target="#explore" type="button" role="tab" aria-controls="explore" aria-selected="false">
+            📚 Explore & Practice
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="tools-tab" data-bs-toggle="pill" data-bs-target="#tools" type="button" role="tab" aria-controls="tools" aria-selected="false">
+            🛠️ Tools & Templates
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="playground-tab" data-bs-toggle="pill" data-bs-target="#playground" type="button" role="tab" aria-controls="playground" aria-selected="false">
+            📈 AI Playground
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="challenges-tab" data-bs-toggle="pill" data-bs-target="#challenges" type="button" role="tab" aria-controls="challenges" aria-selected="false">
+            🎮 Challenges & Rewards
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="community-tab" data-bs-toggle="pill" data-bs-target="#community" type="button" role="tab" aria-controls="community" aria-selected="false">
+            🧑‍🤝‍🧑 Community & Events
+          </button>
+        </li>
+      </ul>
+    </div>
+    <!-- Right Side: Content for Each Sub-Category -->
+    <div class="col-md-9">
+      <div class="tab-content" id="financialLiteracySubTabsContent">
+        <!-- Learn with Videos -->
+        <div class="tab-pane fade show active" id="videos" role="tabpanel" aria-labelledby="videos-tab">
+          <h4 class="mb-4">Learn with Videos</h4>
+          
+          <!-- Foundations of Personal Finance -->
+          <div class="mb-4">
+            <h5>Foundations of Personal Finance</h5>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <a href="https://www.youtube.com/watch?v=MXCvtC0HqLE" target="_blank">Budgeting 101</a>
+              </li>
+              <li class="list-group-item">
+                <a href="https://www.youtube.com/watch?v=6UdC93aERMY" target="_blank">Saving vs. Investing</a>
+              </li>
+              <li class="list-group-item">
+                <a href="https://www.youtube.com/watch?v=dwIGfhhgKOc" target="_blank">Credit Scores and How They Work</a>
+              </li>
+              <li class="list-group-item">
+                <a href="https://www.youtube.com/watch?v=FYKpL7p0t1U" target="_blank">Loans and Interest Explained</a>
+              </li>
+              <li class="list-group-item">
+                <a href="https://www.youtube.com/watch?v=g3cL2RL6FqU" target="_blank">Taxes for Students and Freelancers</a>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- Student-Specific Financial Scenarios -->
+          <div class="mb-4">
+            <h5>Student-Specific Financial Scenarios</h5>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <a href="https://www.youtube.com/watch?v=pZDxU74V924" target="_blank">How to Build a Budget as a Student</a>
+              </li>
+              <li class="list-group-item">
+                <a href="https://www.youtube.com/watch?v=JxjmbhNZ1aM" target="_blank">Managing Money with Part-Time Jobs or Internships</a>
+              </li>
+              <li class="list-group-item">
+                <a href="https://www.youtube.com/watch?v=FyLRxU5mJPM" target="_blank">Understanding Scholarships, Grants, and Student Loans</a>
+              </li>
+              <li class="list-group-item">
+                <a href="https://www.youtube.com/watch?v=AHfHIKFFzPo" target="_blank">Cost of Living: Campus vs. Off-Campus</a>
+              </li>
+              <li class="list-group-item">
+                <a href="https://www.youtube.com/watch?v=iwzSn2suNz8" target="_blank">Financial Planning for Study Abroad</a>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- AI in Finance (Introductory to Intermediate) -->
+          <div class="mb-4">
+            <h5>AI in Finance (Introductory to Intermediate)</h5>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <a href="https://www.youtube.com/watch?v=Yq0QkCxoTHM" target="_blank">What is AI? Basics for Non-Techies</a>
+              </li>
+              <li class="list-group-item">
+                <a href="https://www.youtube.com/watch?v=v5RuqZvazbk" target="_blank">AI in Personal Finance</a>
+              </li>
+              <li class="list-group-item">
+                <a href="https://www.youtube.com/watch?v=96k0sncyoXA" target="_blank">How Banks and Fintechs Use AI</a>
+              </li>
+              <li class="list-group-item">
+                <a href="https://www.youtube.com/watch?v=VpVlJCniVDM&t=554s" target="_blank">Hands-on: Using ChatGPT for Financial Planning</a>
+              </li>
+              <li class="list-group-item">
+                <a href="https://www.youtube.com/watch?v=5sLYAQS9sWQ" target="_blank">Intro to AI Tools: LLMs, Machine Learning, Data Visualization</a>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- Investment and Wealth Building Basics -->
+          <div class="mb-4">
+            <h5>Investment and Wealth Building Basics</h5>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <a href="https://www.youtube.com/watch?v=p7HKvqRI_Bo" target="_blank">Stock Market for Beginners</a>
+              </li>
+              <li class="list-group-item">
+                <a href="https://www.youtube.com/watch?v=rYQgy8QDEBI" target="_blank">Cryptocurrency 101</a>
+              </li>
+              <li class="list-group-item">
+                <a href="https://www.youtube.com/watch?v=Jds2CU0_N_k" target="_blank">Mutual Funds vs ETFs</a>
+              </li>
+              <li class="list-group-item">
+                <a href="https://www.youtube.com/watch?v=_xZ4vVnwedQ" target="_blank">Long-Term Wealth Planning (Compound Interest, Retirement)</a>
+              </li>
+              <li class="list-group-item">
+                <a href="https://www.youtube.com/watch?v=jg_MflByI3Y" target="_blank">Risk Management and Diversification</a>
+              </li>
+            </ul>
+          </div>
+        </div>        
+<!-- Explore & Practice -->
+<div class="tab-pane fade" id="explore" role="tabpanel" aria-labelledby="explore-tab">
+  <h4>Explore & Practice</h4>
+  <p>Enhance your financial skills with interactive flashcards, quizlets, and budget simulators.</p>
+  
+  <!-- Flashcards & Quizzes -->
+  <div class="mb-4">
+    <h5>Financial Literacy Flashcards & Quizzes</h5>
+    <iframe src="https://quizlet.com/405601289/test/embed?i=3l79lj&x=1jj1" height="500" width="100%" style="border:0" allowfullscreen></iframe>
+  </div>
+  
+  <!-- Budget Simulator -->
+  <div class="card p-4 mb-4">
+    <h5>Budget Simulator</h5>
+    <form id="budgetSimulatorForm">
+      <div class="mb-3">
+        <label for="income" class="form-label">Monthly Income ($):</label>
+        <input type="number" class="form-control" id="income" required>
+      </div>
+      <div class="mb-3">
+        <label for="expenses" class="form-label">Total Monthly Expenses ($):</label>
+        <input type="number" class="form-control" id="expenses" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Calculate Budget</button>
+    </form>
+    <div id="budgetResult" class="mt-3"></div>
+  </div>
+  
+  <!-- Loan Calculator -->
+  <div class="card p-4 mb-4">
+    <h5>Financial Calculators</h5>
+    <form id="loanCalculatorForm">
+      <div class="mb-3">
+        <label for="loanAmount" class="form-label">Loan Amount ($):</label>
+        <input type="number" class="form-control" id="loanAmount" required>
+      </div>
+      <div class="mb-3">
+        <label for="interestRate" class="form-label">Annual Interest Rate (%):</label>
+        <input type="number" step="0.01" class="form-control" id="interestRate" required>
+      </div>
+      <div class="mb-3">
+        <label for="loanTerm" class="form-label">Loan Term (years):</label>
+        <input type="number" class="form-control" id="loanTerm" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Calculate Payment</button>
+    </form>
+    <div id="loanResult" class="mt-3"></div>
+  </div>
+  
+  <script>
+    // Budget Simulator Calculation
+    document.getElementById("budgetSimulatorForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      var income = parseFloat(document.getElementById("income").value);
+      var expenses = parseFloat(document.getElementById("expenses").value);
+      var remaining = income - expenses;
+      var resultDiv = document.getElementById("budgetResult");
+      resultDiv.innerHTML = "<strong>Remaining Budget:</strong> $" + remaining.toFixed(2);
+    });
+
+    // Loan Calculator Calculation
+    document.getElementById("loanCalculatorForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      var principal = parseFloat(document.getElementById("loanAmount").value);
+      var annualRate = parseFloat(document.getElementById("interestRate").value);
+      var years = parseFloat(document.getElementById("loanTerm").value);
+      
+      var monthlyRate = annualRate / 100 / 12;
+      var numberOfPayments = years * 12;
+      var numerator = principal * monthlyRate * Math.pow((1 + monthlyRate), numberOfPayments);
+      var denominator = Math.pow((1 + monthlyRate), numberOfPayments) - 1;
+      var monthlyPayment = numerator / denominator;
+      
+      var resultDiv = document.getElementById("loanResult");
+      resultDiv.innerHTML = "<strong>Monthly Payment:</strong> $" + monthlyPayment.toFixed(2);
+    });
+  </script>
+</div>
+<!-- Tools & Templates Pane -->
+<div class="tab-pane fade" id="tools" role="tabpanel" aria-labelledby="tools-tab">
+  <h4>Tools & Templates</h4>
+  <p>Access a collection of budget trackers and financial templates.</p>
+  
+  <!-- Google Sheets Budget Templates Embed -->
+  <div class="card p-3 mb-4">
+    <h5>Google Sheets Budget Templates</h5>
+    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQj8myFf5PuV7SgKXS7wJCr7lkyVlcOsxq4iNLmbgdQxcq-3Ri341cC7U8moUbzf_LZ0JFTuDAE7tOh/pubhtml?widget=true&amp;headers=false" 
+            width="100%" height="600" frameborder="0"></iframe>
+    <div class="text-center mt-3">
+      <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQj8myFf5PuV7SgKXS7wJCr7lkyVlcOsxq4iNLmbgdQxcq-3Ri341cC7U8moUbzf_LZ0JFTuDAE7tOh/export?format=xlsx" class="btn btn-primary" target="_blank">
+        Download Budget Template
+      </a>
+    </div>
+  </div>
+</div>
+
+    <!-- Additional templates can be added here -->
+  </ul>
+</div>
+        <!-- AI Playground -->
+        <div class="tab-pane fade" id="playground" role="tabpanel" aria-labelledby="playground-tab">
+          <h4>AI Playground (Advanced)</h4>
+          <p>Upload a CSV of your transactions and see AI-generated insights in real-time.</p>
+          <ul>
+            <li>Interactive data visualizations</li>
+            <li>Custom analysis using pandas + Flask</li>
+          </ul>
+        </div>
+        <!-- Challenges & Rewards -->
+        <div class="tab-pane fade" id="challenges" role="tabpanel" aria-labelledby="challenges-tab">
+          <h4>Challenges & Rewards</h4>
+          <p>Engage in weekly challenges, earn badges, and compete on leaderboards.</p>
+          <ul>
+            <li>Weekly Budgeting Challenges</li>
+            <li>Saving Milestone Badges</li>
+            <li>Quiz Leaderboards</li>
+            <li>Personal Finance Quests</li>
+          </ul>
+        </div>
+        <!-- Community & Events -->
+        <div class="tab-pane fade" id="community" role="tabpanel" aria-labelledby="community-tab">
+          <h4>Community & Events</h4>
+          <p>Connect with peers, attend live webinars, and participate in our community forum.</p>
+          <ul>
+            <li>Forum for questions and support</li>
+            <li>Live Webinars with Finance Experts</li>
+            <li>Discord Server Integration</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+
+<!-- Script to load Risk Profile fragment when the tab is shown -->
+<!-- Script to load the composite Risk Profile with Financial Plan fragment when the tab is shown -->
+<script>
+  document.addEventListener("DOMContentLoaded", function(){
+    var riskTab = document.getElementById('risk-tab');
+    riskTab.addEventListener('shown.bs.tab', function (event) {
+      fetch("{{ url_for('risk_profile_with_plan', user_id=user_id) }}")
+        .then(response => response.text())
+        .then(html => {
+           document.getElementById('risk-profile-content').innerHTML = html;
+        })
+        .catch(error => console.error("Error loading risk profile with plan:", error));
+    });
+  });
+</script>
+{% endblock %}

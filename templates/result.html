@@ -1,0 +1,77 @@
+<div class="my-4">
+  <h1 class="mb-4">User Data</h1>
+  <a href="{{ url_for('profile', user_id=user_id) }}" class="btn btn-primary mb-3">Go to My Financial Profile</a>
+  
+  <div class="card mb-4">
+    <div class="card-body">
+      <p><strong>User ID:</strong> {{ user_id }}</p>
+      <p><strong>Name:</strong> {{ name_stud }}</p>
+      <p><strong>Email:</strong> {{ email }}</p>
+      <p><strong>University:</strong> {{ university }}</p>
+      <p><strong>City:</strong> {{ city }}</p>
+      <p><strong>Age:</strong> {{ age }}</p>
+      <p><strong>Gender:</strong> {{ gender }}</p>
+      <p><strong>Monthly Budget:</strong> ${{ monthly_budget }}</p>
+      <p><strong>Total Expense:</strong> ${{ total_expense }}</p>
+      <p><strong>Total Savings:</strong> ${{ total_saving }}</p>
+      <p>
+        <strong>Tuition Fees Due Date:</strong>
+        <span class="fw-bold" style="color: {{ tuition_due_status }}">{{ tuition_due_date }}</span>
+      </p>
+      <p>
+        <strong>Insurance Due Date:</strong>
+        <span class="fw-bold" style="color: {{ insurance_due_status }}">{{ insurance_due_date }}</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- Recommendations Section -->
+  <div class="mb-4">
+    <h2>AI-Based Budget Recommendations</h2>
+    <!-- Bootstrap Nav Tabs for Recommendations -->
+    <ul class="nav nav-tabs" id="recommendationTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="university-tab" data-bs-toggle="tab" data-bs-target="#university" type="button" role="tab" aria-controls="university" aria-selected="true">
+          🏫 University
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="city-tab" data-bs-toggle="tab" data-bs-target="#city" type="button" role="tab" aria-controls="city" aria-selected="false">
+          🏙️ City
+        </button>
+      </li>
+    </ul>
+    <div class="tab-content p-3 border border-top-0" id="recommendationTabContent">
+      <div class="tab-pane fade show active" id="university" role="tabpanel" aria-labelledby="university-tab">
+        {% set title = 'University Comparison' %}
+        {% set recommendations = university_recommendations %}
+        {% include 'components/budget_recommendation_card.html' %}
+      </div>
+      <div class="tab-pane fade" id="city" role="tabpanel" aria-labelledby="city-tab">
+        {% set title = 'City Comparison' %}
+        {% set recommendations = city_recommendations %}
+        {% include 'components/budget_recommendation_card.html' %}
+      </div>
+    </div>
+  </div>
+
+  <!-- AI-Generated Financial Plan -->
+  <div class="mb-4">
+    <h2>AI-Generated Financial Plan</h2>
+    <div class="card">
+      <div class="card-body">
+        <p>{{ financial_plan }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Expense Charts -->
+  <div class="mb-4">
+    <h2>Expense Breakdown</h2>
+    <div class="card">
+      <div class="card-body">
+        {{ bar_chart_html|safe }}
+      </div>
+    </div>
+  </div>
+</div>

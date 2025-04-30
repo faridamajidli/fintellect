@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}My Risk Profile{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <h1 class="text-center">Your Risk Profile</h1>
+  <div class="text-center my-4">
+    <h2 style="font-size: 3em;">{{ risk_profile }}</h2>
+    <p class="lead">{{ risk_description }}</p>
+    <p class="text-muted">Last updated: {{ updated_at }}</p>
+  </div>
+  <hr>
+  <div class="text-center mt-4">
+    <a href="{{ url_for('profile', user_id=user_id) }}" class="btn btn-secondary">← Back to Profile</a>
+  </div>
+</div>
+{% endblock %}

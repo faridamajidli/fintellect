@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block title %}Your Financial Profile{% endblock %}
+
+{% block content %}
+<div class="my-5">
+  <h1 class="mb-4">👋 Hello, <span class="text-primary">{{ name_stud }}</span>!</h1>
+  <p class="mb-4 text-muted">Here's a snapshot of your financial life. Stay smart, stay in control 💡</p>
+  <a href="javascript:history.back()" class="btn btn-link mb-4">← Back to Dashboard</a>
+  
+  <div class="row">
+    <!-- Primary Info Cards -->
+<!-- University Card -->
+    <div class="col-md-4 mb-3">
+      <a href="{{ url_for('demographics', user_id=user_id, location_type='university', location_name=university) }}" class="text-decoration-none">
+        <div class="card bg-info text-white">
+          <div class="card-body">
+            <h5 class="card-title">🎓 University</h5>
+            <p class="card-text">{{ university }}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <!-- City Card -->
+    <div class="col-md-4 mb-3">
+      <a href="{{ url_for('demographics', user_id=user_id, location_type='city', location_name=city) }}" class="text-decoration-none">
+        <div class="card bg-success text-white">
+          <div class="card-body">
+            <h5 class="card-title">🌆 City</h5>
+            <p class="card-text">{{ city }}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">📧 Email</h5>
+          <p class="card-text">{{ email }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">🎂 Age</h5>
+          <p class="card-text">{{ age }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">👤 Gender</h5>
+          <p class="card-text">{{ gender }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Financial Overview -->
+  <div class="row mt-4">
+    <div class="col-md-4 mb-3">
+      <div class="card text-white bg-secondary">
+        <div class="card-body">
+          <h5 class="card-title">💼 Monthly Income</h5>
+          <p class="card-text">${{ income_amount }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card text-white bg-warning">
+        <div class="card-body">
+          <h5 class="card-title">💳 Spending Limit</h5>
+          <p class="card-text">${{ monthly_budget }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card text-white bg-info">
+        <div class="card-body">
+          <h5 class="card-title">🎯 Goal Savings</h5>
+          <p class="card-text">${{ target_saving }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">📉 Total Expenses</h5>
+          <p class="card-text">${{ total_expense }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">📈 Actual Monthly Savings</h5>
+          <p class="card-text" style="color: {{ 'green' if total_saving >= target_saving else 'red' }};">
+            ${{ total_saving }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

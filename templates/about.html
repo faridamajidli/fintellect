@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block title %}About Fintellect{% endblock %}
+
+{% block content %}
+<!-- Navbar with Logo -->
+<nav class="navbar navbar-expand-lg" style="background-color: #ffffff; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+  <div class="container">
+    <a class="navbar-brand" href="{{ url_for('about') }}">
+      <img src="{{ url_for('static', filename='images/fintellect_logo.png') }}" alt="Fintellect Logo" style="height: 40px; margin-right: 8px; border: 2px solid #fff; box-shadow: 0 0 5px rgba(0,0,0,0.1);">
+      <span style="color: #185457; font-weight: bold;">Fintellect</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('login') }}" style="color: #185457;">Login</a>
+        </li>
+        <!-- New Sign Up Button -->
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('signup_step1') }}" style="color: #185457;">Sign Up</a>
+        </li>     
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Content with Custom Background -->
+<div class="container-fluid py-5" style="background-color: #F3F4F5;">
+  <div class="container">
+    <!-- Nav Tabs for About Page -->
+    <ul class="nav nav-tabs" id="aboutTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview" type="button" role="tab" aria-controls="overview" aria-selected="true">
+          Overview
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="history-tab" data-bs-toggle="tab" data-bs-target="#history" type="button" role="tab" aria-controls="history" aria-selected="false">
+          History
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="values-tab" data-bs-toggle="tab" data-bs-target="#values" type="button" role="tab" aria-controls="values" aria-selected="false">
+          Values
+        </button>
+      </li>
+    </ul>
+
+    <div class="tab-content pt-4" id="aboutTabContent">
+      <!-- Overview Tab -->
+      <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+        <div class="text-center">
+          <!-- Logo displayed above the heading -->
+          <img src="{{ url_for('static', filename='images/fintellect_logo.png') }}" alt="Fintellect Logo" style="max-height: 80px; margin-bottom: 20px;">
+          <h1 class="display-4" style="color: #185457;">Welcome to Fintellect</h1>
+          <p class="lead" style="color: #4E727C;">Your personal financial intelligence platform for students.</p>
+          <hr class="my-4" style="border-top: 2px solid #92C8BF;">
+          <p>
+            Fintellect helps you manage your finances, track your spending, and improve your financial literacy with personalized insights and educational resources.
+          </p>
+          <a href="{{ url_for('login') }}" class="btn btn-lg" style="background-color: #92C8BF; color: #fff;">Login Now</a>
+        </div>
+      </div>
+      <!-- History Tab -->
+      <div class="tab-pane fade" id="history" role="tabpanel" aria-labelledby="history-tab">
+        <div>
+          <h2 style="color: #185457;">Our History</h2>
+          <p>
+            Founded in 2025, Fintellect was created with the vision to empower students with the tools and knowledge to manage their finances effectively. Starting as a small project, we have rapidly evolved into a comprehensive platform that harnesses advanced analytics and AI-driven insights.
+          </p>
+        </div>
+      </div>
+      <!-- Values Tab -->
+      <div class="tab-pane fade" id="values" role="tabpanel" aria-labelledby="values-tab">
+        <div>
+          <h2 style="color: #185457;">Our Values</h2>
+          <p>
+            At Fintellect, we believe in transparency, empowerment, and continuous learning. Our mission is to provide students with reliable financial insights and educational resources that promote responsible money management and long-term financial success.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-light py-4">
+  <div class="container text-center">
+    <p class="mb-0">&copy; 2025 Fintellect. All rights reserved.</p>
+  </div>
+</footer>
+{% endblock %}

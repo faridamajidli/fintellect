@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Sign Up - Step 3: Expenses{% endblock %}
+{% block content %}
+<div class="container my-5">
+  <h1>Step 3: Expense Information</h1>
+  <form method="POST">
+    <div class="mb-3">
+      <label for="rent" class="form-label">Rent ($)</label>
+      <input type="number" class="form-control" name="rent" required>
+    </div>
+    <div class="mb-3">
+      <label for="grocery" class="form-label">Grocery ($)</label>
+      <input type="number" class="form-control" name="grocery" required>
+    </div>
+    <div class="mb-3">
+      <label for="transportation" class="form-label">Transportation ($)</label>
+      <input type="number" class="form-control" name="transportation" required>
+    </div>
+    <div class="mb-3">
+      <label for="personal" class="form-label">Personal ($)</label>
+      <input type="number" class="form-control" name="personal" required>
+    </div>
+    <div class="mb-3">
+      <label for="misc" class="form-label">Misc ($)</label>
+      <input type="number" class="form-control" name="misc" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Next</button>
+  </form>
+</div>
+{% endblock %}

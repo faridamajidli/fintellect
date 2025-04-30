@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Fintellect – Student Financial Intelligence{% endblock %}
+
+{% block content %}
+<div class="container text-center py-5">
+  <img src="{{ url_for('static', filename='images/fintellect_logo.png') }}" alt="Fintellect Logo" class="mb-4" style="max-width: 180px;">
+  <h1 class="display-4 text-primary mb-3">Welcome to Fintellect</h1>
+  <h2 class="text-secondary mb-4">Built for Students. Powered by Intelligence.</h2>
+  <form class="mx-auto" action="/" method="POST" style="max-width: 400px;">
+    <div class="mb-3">
+      <input type="text" name="user_id" placeholder="Enter your Student ID" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Get My Report</button>
+  </form>
+</div>
+{% endblock %}

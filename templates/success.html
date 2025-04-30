@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Sign Up Successful{% endblock %}
+{% block content %}
+<div class="container my-5">
+  <h1>Sign-Up Successful!</h1>
+  <p>You have successfully signed up.</p>
+  <p><strong>Your Student ID is: {{ user_id }}</strong></p>
+  <p>Please remember this Student ID as you'll use it to log in to the app.</p>
+  <a href="{{ url_for('about') }}" class="btn btn-primary">Go to Login</a>
+</div>
+{% endblock %}

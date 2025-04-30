@@ -1,0 +1,153 @@
+/* Profile Wrapper Tweaks */
+.profile-wrapper {
+    max-width: 960px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* Heading Styles */
+.greeting {
+    font-size: 2.2em;
+    margin-bottom: 5px;
+    color: #185457;
+}
+
+.subtitle {
+    font-size: 1.1em;
+    color: #4E727C;
+    margin-bottom: 25px;
+}
+
+/* Back Link to Dashboard */
+.back-link {
+    display: inline-block;
+    margin-bottom: 30px;
+    text-decoration: none;
+    color: #185457;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.back-link:hover {
+    color: #4E727C;
+}
+
+/* Cards Grid Layout */
+.profile-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+/* Card Design */
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    margin-bottom: 8px;
+    color: #185457;
+}
+
+/* Highlighted University/City Cards */
+.card.highlight {
+    background-color: #92C8BF;
+    color: white;
+}
+
+.card.highlight h3 {
+    color: white;
+}
+
+/* Financial Cards Styling */
+.card.financial {
+    background-color: #F3F4F5;
+}
+
+.profile-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Grouping cards into sections */
+.section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+/* Comparison Container */
+.comparison-container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #FAFAFA;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Title Styling */
+.comparison-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #185457;
+    text-align: center;
+}
+
+/* Table Styling */
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.comparison-table thead th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    padding: 12px 15px;
+    border-bottom: 2px solid #ddd;
+    text-align: left;
+}
+
+.comparison-table tbody td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Stripe the table rows */
+.comparison-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Expense Highlighting */
+.expense-high {
+    color: #D9534F; /* Red-ish */
+    font-weight: 600;
+}
+
+.expense-low {
+    color: #5CB85C; /* Green-ish */
+    font-weight: 600;
+}
+
+/* Back Link */
+.back-link {
+    display: inline-block;
+    color: #185457;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.back-link:hover {
+    color: #4E727C;
+}

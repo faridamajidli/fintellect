@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Sign Up - Step 1: Basic Info{% endblock %}
+{% block content %}
+<div class="container my-5">
+  <h1>Step 1: Basic Information</h1>
+  <form method="POST">
+    <div class="mb-3">
+      <label for="name_stud" class="form-label">Name</label>
+      <input type="text" class="form-control" name="name_stud" required>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" name="email" required>
+    </div>
+    <div class="mb-3">
+      <label for="gender" class="form-label">Gender</label>
+      <select class="form-select" name="gender" required>
+        <option value="">--Select--</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <!-- Add more options if needed -->
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="age" class="form-label">Age</label>
+      <input type="number" class="form-control" name="age" required>
+    </div>
+    <div class="mb-3">
+      <label for="university" class="form-label">University</label>
+      <input type="text" class="form-control" name="university" required>
+    </div>
+    <div class="mb-3">
+      <label for="city" class="form-label">City</label>
+      <input type="text" class="form-control" name="city" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Next</button>
+  </form>
+</div>
+{% endblock %}

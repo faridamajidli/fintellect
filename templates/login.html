@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Login - Fintellect{% endblock %}
+
+{% block content %}
+<div class="container text-center py-5">
+  <h1 class="display-5 text-primary mb-3">Login to Fintellect</h1>
+  <form class="mx-auto" action="{{ url_for('login') }}" method="POST" style="max-width: 400px;">
+    <div class="mb-3">
+      <input type="text" name="user_id" placeholder="Enter your Student ID" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+{% endblock %}

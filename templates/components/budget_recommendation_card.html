@@ -1,0 +1,21 @@
+<div class="recommendation-tab">
+  <h3>{{ title }}</h3>
+  <ul class="list-group">
+    {% for item in recommendations %}
+      <li class="list-group-item" style="color: {{ 'green' if '✅' in item else 'red' }};">
+        {% if 'Grocery' in item %}
+          🛒
+        {% elif 'Rent' in item %}
+          🏠
+        {% elif 'Personal' in item %}
+          👤
+        {% elif 'Transportation' in item %}
+          🚗
+        {% elif 'Miscellaneous' in item %}
+          🎯
+        {% endif %}
+        {{ item[2:] }}
+      </li>
+    {% endfor %}
+  </ul>
+</div>
