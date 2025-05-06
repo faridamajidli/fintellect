@@ -42,7 +42,7 @@ pip install -r requirements.txt
 
 3. Configure .env
 ```
-DATABASE_URL=your_postgres_connection_string
+DATABASE_URL=postgresql://postgres:password@localhost:5432/fintellect
 HUGGINGFACE_API_KEY=your_hf_api_key
 ```
 
