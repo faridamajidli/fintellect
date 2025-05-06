@@ -27,29 +27,41 @@ Fintellect is an AI-driven financial advisory platform tailored for students in 
 * Model: HuggingFaceH4/zephyr-7b-beta
 
 ## How to Run Locally
-1. Clone the Repository
-```
+
+### 1. Clone the Repository
+
+```bash
 git clone https://github.com/your-username/fintellect.git
 cd fintellect
+cp .env.example .env  # Fill in Hugging Face API key
+docker-compose up -d  # Start PostgreSQL with the schema and seed data
 ```
 
-2. Set Up Environment
-```
+### 2. Set Up Python Environment
+
+```bash
 python -m venv venv
-source venv/bin/activate
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-3. Configure .env
-```
+### 3. Configure Environment Variables
+
+Open `.env` and set:
+
+```env
 DATABASE_URL=postgresql://postgres:password@localhost:5432/fintellect
 HUGGINGFACE_API_KEY=your_hf_api_key
 ```
 
-4. Run Flask App
-```
+> 💡 Make sure `.env` is in your `.gitignore` to avoid exposing secrets.
+
+### 4. Run the Flask App
+
+```bash
 python app.py
 ```
 
+The app will start on [http://localhost:5000](http://localhost:5000) by default.
 
 
