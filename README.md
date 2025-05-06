@@ -28,20 +28,28 @@ Fintellect is an AI-driven financial advisory platform tailored for students in 
 
 ## How to Run Locally
 1. Clone the Repository
+```
 git clone https://github.com/your-username/fintellect.git
 cd fintellect
+```
 
 2. Set Up Environment
+```
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
+```
 
 3. Configure .env
+```
 DATABASE_URL=your_postgres_connection_string
 HUGGINGFACE_API_KEY=your_hf_api_key
+```
 
 4. Run Flask App
+```
 python app.py
+```
 
 
 
